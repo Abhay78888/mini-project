@@ -28,17 +28,17 @@ body{
     #f8fafc;
 }
 
-/* 🌙 DARK MODE */
+
 body.dark{
     --glass:rgba(30,30,30,0.6);
     --glass-strong:rgba(30,30,30,0.85);
     --border:rgba(255,255,255,0.08);
     --text:#f9fafb;
-    --text-light:#9ca3af;
+    --text-light:White;
     background:#0f172a;
 }
 
-/* HEADER */
+
 .header{
     background:var(--glass);
     backdrop-filter:blur(16px);
@@ -69,7 +69,6 @@ body.dark{
     gap:1rem;
 }
 
-/* BUTTONS */
 .btn{
     padding:.5rem 1.2rem;
     border:none;
@@ -96,7 +95,7 @@ body.dark{
     transform:translateY(-2px);
 }
 
-/* MAIN */
+
 .main-content{
     flex:1;
     display:flex;
@@ -110,12 +109,12 @@ body.dark{
     transition:margin-left 0.3s ease;
 }
 
-/* shift when sidebar opens */
+
 .main-content.shift{
     margin-left:260px;
 }
 
-/* HERO */
+
 .hero-section{
     text-align:center;
     margin-bottom:3rem;
@@ -127,7 +126,7 @@ body.dark{
     color:var(--text);
 }
 
-/* SEARCH */
+
 .search-container{
     position:relative;
     max-width:650px;
@@ -183,7 +182,7 @@ body.dark{
     color:white;
 }
 
-/* FEATURES */
+
 .features{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(235px,1fr));
@@ -235,7 +234,7 @@ body.dark{
     line-height:1.6;
 }
 
-/* 📌 SIDEBAR */
+
 .sidebar{
     position:fixed;
     top:0;
@@ -279,11 +278,22 @@ body.dark{
     color:var(--accent);
 }
 
-/* overlay when sidebar open */
 body.sidebar-open::after{
-    content:'';
     position:fixed;
     inset:0;
     background:rgba(0,0,0,0.3);
     z-index:999;
+}
+
+.sidebar-trigger{
+    position:fixed;
+    top:0;
+    left:0;
+    width:18px;   
+    height:100vh;
+    z-index:10000;
+}
+
+.sidebar{
+    transition:all 0.25s ease;
 }

@@ -4,153 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Buy Assistant</title>
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- SIDEBAR -->
-    <aside class="sidebar" id="sidebar">
-        <div class="sidebar-logo">
-            <i class="fas fa-store"></i>
-            Dashboard
+<div class="sidebar-trigger"></div>
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+        <i class="fas fa-store"></i>
+        Dashboard
+    </div>
+
+    <ul class="sidebar-menu">
+        <li><i class="fas fa-home"></i> Home</li>
+        <li><i class="fas fa-chart-line"></i> Analytics</li>
+        <li><i class="fas fa-box"></i> Products</li>
+        <li><i class="fas fa-user"></i> Profile</li>
+    </ul>
+</aside>
+
+<header class="header">
+    <div class="logo">
+        <i class="fas fa-chart-line"></i>
+        Smart Buy Assistant
+    </div>
+
+    <div class="header-actions">
+        <button class="btn" onclick="toggleTheme()" id="themeToggle">
+            <i class="fas fa-moon"></i>
+        </button>
+
+        <button class="btn btn-primary" onclick="toggleChat()">
+            <i class="fas fa-comments"></i>
+            AI Assistant
+        </button>
+    </div>
+</header>
+
+<main class="main-content">
+    <div class="hero-section">
+        <h1 class="hero-title">AI-Powered E-commerce Analytics</h1>
+    </div>
+
+    <div class="search-container">
+        <input 
+            type="text" 
+            class="search-input" 
+            placeholder="Paste the link of any product to view its prices at different platforms...">
+
+        <button class="search-btn">
+            <i class="fas fa-search"></i>
+        </button>
+    </div>
+
+    <div class="features">
+
+        <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+            <div class="feature-title">Real-time Analysis</div>
+            <div class="feature-desc">Get live competitor data instantly</div>
         </div>
 
-        <ul class="sidebar-menu">
-            <li><i class="fas fa-home"></i> Home</li>
-            <li><i class="fas fa-chart-line"></i> Analytics</li>
-            <li><i class="fas fa-box"></i> Products</li>
-            <li><i class="fas fa-user"></i> Profile</li>
-        </ul>
-    </aside>
-
-    <!-- BACKGROUND -->
-    <div class="bg-glow glow1"></div>
-    <div class="bg-glow glow2"></div>
-
-    <!-- HEADER -->
-    <header class="header">
-        <div class="logo">
-            <i class="fas fa-chart-line"></i>
-            Smart Buy Assistant
+        <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-search-dollar"></i></div>
+            <div class="feature-title">Product Research</div>
+            <div class="feature-desc">Discover trending products</div>
         </div>
 
-        <div class="header-actions">
-            <!-- Sidebar Toggle -->
-            <button class="btn" onclick="toggleSidebar()">
-                <i class="fas fa-bars"></i>
-            </button>
-
-            <!-- Theme Toggle -->
-            <button class="btn" onclick="toggleTheme()" id="themeToggle">
-                <i class="fas fa-moon"></i>
-            </button>
-
-            <!-- AI Button -->
-            <button class="btn btn-primary" onclick="toggleChat()">
-                <i class="fas fa-comments"></i>
-                AI Assistant
-            </button>
-        </div>
-    </header>
-
-    <!-- MAIN -->
-    <main class="main-content">
-        <div class="hero-section">
-            <h1 class="hero-title">AI-Powered E-commerce Analytics</h1>
+        <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-chart-bar"></i></div>
+            <div class="feature-title">Sales Estimates</div>
+            <div class="feature-desc">Accurate revenue predictions</div>
         </div>
 
-        <div class="search-container">
-            <input 
-                type="text" 
-                class="search-input" 
-                placeholder="Analyze 'sneakers on Amazon' or 'best selling t-shirts Flipkart'..."
-                id="searchInput"
-                onkeypress="handleKeyPress(event)"
-            >
-            <button class="search-btn" onclick="performSearch()">
-                <i class="fas fa-search"></i>
-            </button>
+        <div class="feature-card">
+            <div class="feature-icon"><i class="fas fa-rocket"></i></div>
+            <div class="feature-title">Growth Strategies</div>
+            <div class="feature-desc">AI-powered recommendations</div>
         </div>
 
-        <div class="features">
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-bolt"></i>
-                </div>
-                <div class="feature-title">Real-time Analysis</div>
-                <div class="feature-desc">Get live competitor data and pricing insights instantly</div>
-            </div>
+    </div>
+</main>
 
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-search-dollar"></i>
-                </div>
-                <div class="feature-title">Product Research</div>
-                <div class="feature-desc">Discover trending products across Amazon, Flipkart & more</div>
-            </div>
+<script src="script.js"></script>
 
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-chart-bar"></i>
-                </div>
-                <div class="feature-title">Sales Estimates</div>
-                <div class="feature-desc">Accurate revenue predictions and sales volume data</div>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-rocket"></i>
-                </div>
-                <div class="feature-title">Growth Strategies</div>
-                <div class="feature-desc">AI-powered recommendations for your e-commerce success</div>
-            </div>
-        </div>
-    </main>
-
-    <!-- JS -->
-    <script>
-function toggleSidebar(){
-    const sidebar = document.getElementById("sidebar");
-    sidebar.classList.toggle("active");
-    document.body.classList.toggle("sidebar-open");
-}
-
-function toggleTheme(){
-    document.body.classList.toggle("dark");
-
-    const icon = document.querySelector("#themeToggle i");
-    icon.classList.toggle("fa-moon");
-    icon.classList.toggle("fa-sun");
-}
-
-function toggleChat(){
-    alert("AI Assistant coming soon 🚀");
-}
-
-/* ✅ FIXED OUTSIDE CLICK LOGIC */
-document.addEventListener("click", function(e){
-    const sidebar = document.getElementById("sidebar");
-    const menuBtn = document.querySelector(".fa-bars");
-
-    if(
-        sidebar.classList.contains("active") &&
-        !sidebar.contains(e.target) &&
-        !menuBtn.contains(e.target)   // 👈 ONLY ignore sidebar button
-    ){
-        sidebar.classList.remove("active");
-        document.body.classList.remove("sidebar-open");
-    }
-});
-
-/* close on menu click */
-document.querySelectorAll(".sidebar-menu li").forEach(item=>{
-    item.addEventListener("click", ()=>{
-        document.getElementById("sidebar").classList.remove("active");
-        document.body.classList.remove("sidebar-open");
-    });
-});
-</script>
 </body>
 </html>
